@@ -11,7 +11,7 @@ function Totals({ monthData }) {
   });
 
   return (
-    <div className="w-fit mt-6 bg-slate-200/20 p-4 sm:pr-60 rounded-xl border border-slate-300">
+    <div className="text-md sm:text-md w-fit mt-6 bg-slate-200/20 p-4 pr-20 sm:pr-60 rounded-xl border border-slate-300">
       <p className="font-bold">
         Total working days: <span>{monthData.length}</span>
       </p>

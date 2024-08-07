@@ -53,7 +53,7 @@ function ProfilePage() {
         <p>Loading...</p>
       ) : (
         <div className="flex flex-col items-center gap-6 mt-6">
-          <div className="flex flex-col gap-6 text-start bg-slate-200/60 p-10 rounded-xl border border-slate-300">
+          <div className="flex flex-col gap-6 text-start  p-10 rounded-xl border backdrop-blur-md bg-white/50 border-slate-300">
             <h2 className="text-xl font-bold">User Information</h2>
             <p>
               <strong>Email:</strong> {userInfo.email}

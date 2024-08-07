@@ -133,7 +133,7 @@ function ActionButtons({ postData, session }) {
 
   return (
     <div className="relative w-full flex justify-center items-center gap-2">
-      <ul className="w-2/3 flex justify-between">
+      <ul className="w-full sm:w-2/3 flex justify-between">
         <Button>View</Button>
         <Button onPress={() => handleEditOpen('md')}>Edit</Button>
         <Button onPress={() => handleDeleteOpen('md')}>Delete</Button>

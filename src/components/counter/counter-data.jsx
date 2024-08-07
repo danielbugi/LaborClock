@@ -9,8 +9,8 @@ function CounterData({ monthData, year, month, session }) {
   console.log('monthData', monthData);
 
   return (
-    <div className="w-full flex flex-col gap-6 mt-6 py-4 px-0 sm:p-4 rounded-xl border backdrop-blur-md bg-white/50 border-slate-300">
-      <h1 className="text-xl font-bold text-start mb-4">
+    <div className="w-full flex flex-col gap-4 mt-6 py-4 px-0 sm:p-4 rounded-xl border backdrop-blur-md bg-white/50 border-slate-300">
+      <h1 className="text-md sm:text-lg font-bold text-start  pl-2 sm:pl-0">
         Working days for - {year} \ {month}
       </h1>
 
@@ -23,7 +23,7 @@ function CounterData({ monthData, year, month, session }) {
       ) : (
         <>
           <div className=" pt-4 pb-12 px-0 sm:px-2 rounded-lg ">
-            <ul className="flex w-full justify-between py-2 px-2 sm:px-12 mr-24 rounded-lg uppercase font-bold text-[14px] text-gray-500">
+            <ul className="flex w-full justify-between py-2 px-2 sm:px-12 mr-24 rounded-lg uppercase font-bold text-xs sm:text-[12px] text-gray-500">
               <li>date</li>
               <li>Entry</li>
               <li>Exit</li>
@@ -37,7 +37,7 @@ function CounterData({ monthData, year, month, session }) {
                   key={day._id}
                   aria-label="Accordion 1"
                   title={
-                    <div className="flex w-full justify-between  text-[16px]">
+                    <div className="flex w-full justify-between  text-xs sm:text-[14px]">
                       <p className="flex-1 text-gray-600 text-start">
                         {day.day}
                       </p>
@@ -47,10 +47,10 @@ function CounterData({ monthData, year, month, session }) {
                       <p className="flex-1 text-gray-600 text-start">
                         {day.to}
                       </p>
-                      <p className="flex-1 text-gray-600 text-start">
+                      <p className="flex-1 text-gray-600 text-center sm:text-start">
                         {day.totalTime}
                       </p>
-                      <p className="flex-1 text-gray-600 text-start font-bold">
+                      <p className="flex-1 text-gray-600 font-bold text-center sm:text-start">
                         {day.totalSalary}
                       </p>
                     </div>

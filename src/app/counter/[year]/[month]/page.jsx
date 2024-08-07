@@ -53,8 +53,7 @@ function MonthPage() {
       <CounterHeader />
 
       {!monthData || loading ? (
-        <div className="container bg-slate-200 mt-6 p-4 rounded-xl">
-          <h1 className="text-xl font-bold text-start">Counter Data</h1>
+        <div className="container backdrop-blur-md bg-white/50 border-slate-300 mt-6 p-4 rounded-xl">
           <p>Loading...</p>
         </div>
       ) : (

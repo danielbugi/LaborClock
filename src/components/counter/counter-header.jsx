@@ -1,6 +1,7 @@
 'use client';
 
 import { Select, SelectItem, Button } from '@nextui-org/react';
+import { Popover, PopoverTrigger, PopoverContent } from '@nextui-org/popover';
 
 import { useLaborContext } from '@/context/labor-context';
 import { useRouter } from 'next/navigation';
@@ -29,43 +30,55 @@ function CounterHeader() {
   };
 
   return (
-    <div className="container flex flex-col gap-4 rounded-xl mt-6 mb-4 backdrop-blur-md bg-sky-100/50 p-4 border border-slate-300">
-      <h1 className="text-xl font-bold text-start">Navigate to year/ month</h1>
-      <form
-        onSubmit={handleRedirectOnSubmit}
-        className="flex items-center gap-4"
-      >
-        <Select
-          size="sm"
-          label="Select a month"
-          className="max-w-xs"
-          value={selectedMonth}
-          onChange={(e) => setSelectedMonth(e.target.value)}
-        >
-          {months.map((month, index) => (
-            <SelectItem key={month} value={index + 1}>
-              {month}
-            </SelectItem>
-          ))}
-        </Select>
+    <div className="w-full mt-6 mb-4">
+      <Popover placement="bottom" showArrow>
+        <PopoverTrigger>
+          <Button className="w-full">Navigate to year/ month</Button>
+        </PopoverTrigger>
 
-        <Select
-          label="Select a year"
-          className="max-w-xs"
-          size="sm"
-          value={selectedYear}
-          onChange={(e) => setSelectedYear(e.target.value)}
-        >
-          {[...Array(10)].map((_, i) => {
-            const year = 2022 + i;
-            return <SelectItem key={year}>{year.toString()}</SelectItem>;
-          })}
-        </Select>
+        <PopoverContent className="w-[240px] sm:w-[40rem] p-2">
+          <form
+            onSubmit={handleRedirectOnSubmit}
+            className="flex flex-col sm:flex-row w-full items-center gap-4"
+          >
+            <Select
+              size="xm"
+              placeholder="Select a month"
+              className="max-w-xs"
+              value={selectedMonth}
+              onChange={(e) => setSelectedMonth(e.target.value)}
+            >
+              {months.map((month, index) => (
+                <SelectItem key={month} value={index + 1}>
+                  {month}
+                </SelectItem>
+              ))}
+            </Select>
 
-        <Button color="primary" variant="flat" onClick={handleRedirectOnSubmit}>
-          Go
-        </Button>
-      </form>
+            <Select
+              placeholder="Select a year"
+              className="max-w-xs"
+              size="xm"
+              value={selectedYear}
+              onChange={(e) => setSelectedYear(e.target.value)}
+            >
+              {[...Array(10)].map((_, i) => {
+                const year = 2022 + i;
+                return <SelectItem key={year}>{year.toString()}</SelectItem>;
+              })}
+            </Select>
+
+            <Button
+              color="primary"
+              variant="flat"
+              size="sm"
+              onClick={handleRedirectOnSubmit}
+            >
+              Go
+            </Button>
+          </form>
+        </PopoverContent>
+      </Popover>
     </div>
   );
 }

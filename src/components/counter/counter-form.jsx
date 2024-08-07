@@ -125,7 +125,7 @@ function CounterForm() {
         <Button
           auto
           color="primary"
-          className="fixed bottom-32 right-10 sm:right-32 w-20 h-20 rounded-full"
+          className="fixed bottom-5 right-5 sn:bottom-32 sm:right-32 w-20 h-20 rounded-full"
         >
           <CiCirclePlus className="text-white text-7xl cursor-pointer" />
         </Button>
