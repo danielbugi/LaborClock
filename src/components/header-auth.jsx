@@ -28,7 +28,7 @@ function HeaderAuth({ cachedSession, setCachedSession }) {
       <Popover placement="left-start">
         <NavbarContent justify="end">
           <PopoverTrigger>
-            <Button color="primary" variant="flat">
+            <Button color="primary" variant="flat" className="text-sm">
               Hello, {cachedSession.user.name}
             </Button>
           </PopoverTrigger>
@@ -55,11 +55,19 @@ function HeaderAuth({ cachedSession, setCachedSession }) {
   } else {
     authContent = (
       <NavbarContent justify="end">
-        <NavbarItem className="hidden lg:flex">
-          <Link href="/login">Login</Link>
+        <NavbarItem>
+          <Link className="text-sm" href="/login">
+            Login
+          </Link>
         </NavbarItem>
         <NavbarItem>
-          <Button as={Link} color="primary" href="/register" variant="flat">
+          <Button
+            as={Link}
+            color="primary"
+            href="/register"
+            variant="flat"
+            className="text-sm"
+          >
             Sign Up
           </Button>
         </NavbarItem>

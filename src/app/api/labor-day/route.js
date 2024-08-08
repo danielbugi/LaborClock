@@ -4,6 +4,7 @@ import Labor from '@/models/laborModel';
 
 import dbConnect from '@/utils/db';
 import calculateTotals from '@/utils/calculateTotals';
+import { monthParser } from '@/utils/monthParser';
 
 export async function POST(req) {
   await dbConnect();
@@ -67,7 +68,7 @@ export async function GET(req) {
   await dbConnect();
 
   const { searchParams } = new URL(req.url);
-  const month = searchParams.get('month');
+  let month = searchParams.get('month');
   const year = searchParams.get('year');
   const userId = searchParams.get('userId');
 

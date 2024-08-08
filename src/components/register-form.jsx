@@ -91,8 +91,11 @@ function RegisterForm() {
   }, [message, success, error]);
 
   return (
-    <form onSubmit={handleSubmit} className="border-r-2">
-      <div className="flex flex-col gap-4 pr-28">
+    <form
+      onSubmit={handleSubmit}
+      className="border-b-2 md:border-r-2 pb-4 md:pb-0"
+    >
+      <div className="flex flex-col gap-4 pr-0 md:pr-28">
         <Input
           label="First Name"
           id="firstName"

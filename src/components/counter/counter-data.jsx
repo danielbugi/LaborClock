@@ -48,10 +48,10 @@ function CounterData({ monthData, year, month, session }) {
                         {day.to}
                       </p>
                       <p className="flex-1 text-gray-600 text-center sm:text-start">
-                        {day.totalTime}
+                        {day.totalTime.toFixed(2)}
                       </p>
                       <p className="flex-1 text-gray-600 font-bold text-center sm:text-start">
-                        {day.totalSalary}
+                        {day.totalSalary.toFixed(2)}
                       </p>
                     </div>
                   }

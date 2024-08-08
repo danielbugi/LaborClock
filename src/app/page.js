@@ -1,12 +1,15 @@
 import Image from 'next/image';
 import { Button } from '@nextui-org/react';
 import { IoMdCheckboxOutline } from 'react-icons/io';
+import Bg from '@/components/bg';
 
 export default function Home() {
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 justify-center py-24">
+      <Bg display="absolute" />
+
       <div className="flex flex-col items-center md:items-start gap-6 pr-0 md:pr-0">
-        <h1 className="text-4xl sm:text-6xl text-center font-bold mt-4">
+        <h1 className="text-4xl sm:text-6xl text-center md:text-start font-bold mt-4">
           Your smart Labor
           <span className="text-blue-500">Clock</span>
         </h1>

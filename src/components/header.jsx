@@ -27,7 +27,9 @@ function Header() {
         >
           <NavbarBrand>
             <Link href="/">
-              <h1 className="font-bold text-black text-lg">LaborClock</h1>
+              <h1 className="font-bold text-black text-md sm:text-lg">
+                LaborClock
+              </h1>
             </Link>
           </NavbarBrand>
 
