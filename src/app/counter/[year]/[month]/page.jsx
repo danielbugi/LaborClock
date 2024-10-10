@@ -6,17 +6,18 @@ import CounterHeader from '@/components/counter/counter-header';
 
 import { useParams } from 'next/navigation';
 import { useEffect, useState } from 'react';
-import { useSession } from 'next-auth/react';
 import { useLaborContext } from '@/context/labor-context';
 import Totals from '@/components/counter/totals';
 import { convertMonthNumberToString, months } from '@/utils/months';
+import { useUserContext } from '@/context/user-context';
 
 function MonthPage() {
   const [monthData, setMonthData] = useState(null);
   const { loading, setLoading } = useLaborContext();
 
   const { year, month } = useParams();
-  const { data: session } = useSession();
+
+  const { userInfo: session } = useUserContext();
 
   const monthName = convertMonthNumberToString(month);
 
@@ -45,14 +46,22 @@ function MonthPage() {
 
     if (!session || !month || !year) return;
 
-    getMonthData(session.user.id).then((data) => {
+    getMonthData(session.id).then((data) => {
       setMonthData(data);
       setLoading(false);
     });
   }, [year, month, session, setLoading]);
 
+  if (!session) {
+    return (
+      <div className="container backdrop-blur-md bg-white/50 border-slate-300 mt-6 p-4 rounded-xl">
+        <p>Loading...</p>
+      </div>
+    );
+  }
+
   return (
-    <div className="relative w-full px-3 min-h-[100vh] mx-auto">
+    <div className="relative w-full px-3 min-h-[100vh] mx-auto mb-10">
       <CounterHeader year={year} />
 
       {!monthData || loading ? (
@@ -71,7 +80,7 @@ function MonthPage() {
         </>
       )}
 
-      <CounterForm />
+      <CounterForm userInfo={session} />
     </div>
   );
 }

@@ -10,12 +10,14 @@ import {
 import { signOut } from 'next-auth/react';
 
 import DarkModeSwitch from './darkmode-switch';
-import useAuth from './use-auth';
+// import useAuth from './use-auth';
 import useDarkMode from './use-darkmode';
 import { useLaborContext } from '@/context/labor-context';
+import { useUserContext } from '@/context/user-context';
 
 function HeaderAuth() {
-  const { session, isAuthenticated } = useAuth();
+  const { userInfo } = useUserContext();
+
   const { isDark } = useDarkMode();
 
   const { selectedMonth, selectedYear } = useLaborContext();
@@ -24,7 +26,7 @@ function HeaderAuth() {
     await signOut({ redirect: true, callbackUrl: '/' });
   };
 
-  if (!isAuthenticated) {
+  if (!userInfo) {
     return (
       <NavbarContent justify="end">
         <NavbarItem>
@@ -52,7 +54,7 @@ function HeaderAuth() {
       <NavbarContent justify="end">
         <PopoverTrigger>
           <Button color="primary" variant="light" className="p-0 w-fit">
-            {session.user.name}
+            {userInfo.name}
           </Button>
         </PopoverTrigger>
       </NavbarContent>
@@ -61,14 +63,14 @@ function HeaderAuth() {
         <div className="py-2 px-4 w-full">
           <nav className="flex flex-col gap-12">
             <div className="flex flex-col gap-2">
-              <p>Hello, {session.user.name}</p>
+              <p>Hello, {userInfo.name}</p>
               <Link
                 href={`/counter/${selectedYear}/${selectedMonth}`}
                 className="text-sm"
               >
                 My List
               </Link>
-              <Link href={`/profile/${session.user.id}`} className="text-sm">
+              <Link href={`/profile/${userInfo.id}`} className="text-sm">
                 My Profile
               </Link>
             </div>

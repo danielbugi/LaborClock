@@ -75,8 +75,8 @@ function ActionButtons({ postData, session }) {
     if (session) {
       setEditData((prev) => ({
         ...prev,
-        perHour: session.user.perHour,
-        userId: session.user.userId,
+        perHour: session.perHour,
+        userId: session.userId,
       }));
     }
   }, [session]);

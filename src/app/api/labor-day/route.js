@@ -5,6 +5,7 @@ import Labor from '@/models/laborModel';
 import dbConnect from '@/utils/db';
 import calculateTotals from '@/utils/calculateTotals';
 import { monthParser } from '@/utils/monthParser';
+import { convertMonthNumberToString } from '@/utils/months';
 
 export async function POST(req) {
   await dbConnect();
@@ -31,19 +32,25 @@ export async function POST(req) {
     perHour
   );
 
+  const monthName = convertMonthNumberToString(month);
+
+  const laborObj = {
+    day,
+    from,
+    to,
+    isHoliday,
+    note,
+    month: monthName,
+    year,
+    userId,
+    totalTime,
+    totalSalary,
+    perHour,
+  };
+
+  console.log(laborObj);
   try {
-    const labor = await Labor.create({
-      day,
-      from,
-      to,
-      isHoliday,
-      note,
-      month,
-      year,
-      userId,
-      totalTime,
-      totalSalary,
-    });
+    const labor = await Labor.create(laborObj);
 
     return NextResponse.json(
       {

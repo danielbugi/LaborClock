@@ -15,7 +15,7 @@ export const LaborProvider = ({ children }) => {
 
   const getCurrentDate = () => {
     const date = new Date();
-    const month = date.getMonth();
+    const month = date.getMonth() + 1;
     const year = date.getFullYear();
 
     return [month, year];
@@ -23,7 +23,8 @@ export const LaborProvider = ({ children }) => {
 
   useEffect(() => {
     const [month, year] = getCurrentDate();
-    // console.log('month', month);
+
+    // console.log('current month from context:', month);
 
     setSelectedMonth(month);
     setSelectedYear(year);
