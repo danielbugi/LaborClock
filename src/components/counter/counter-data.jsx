@@ -40,7 +40,7 @@ function CounterData({ monthData, year, month, session }) {
                   title={
                     <div
                       className={`flex flex-col gap-2 max-h-8 ${
-                        day.isHoliday ? 'text-orange-400' : 'text-gray-100'
+                        day.isHoliday ? 'text-orange-400' : ''
                       }`}
                     >
                       <div className="flex w-full justify-between text-xs sm:text-[14px]">
@@ -56,7 +56,7 @@ function CounterData({ monthData, year, month, session }) {
                         </p>
                       </div>
                       <div>
-                        <p className="text-xs text-gray-100">
+                        <p className="text-xs">
                           {day.note ? `*${day.note}` : ''}
                         </p>
                       </div>
@@ -64,19 +64,19 @@ function CounterData({ monthData, year, month, session }) {
                   }
                 >
                   <div className="my-4 flex flex-col gap-4 ">
-                    <p className="text-sm text-gray-100">
+                    <p className="text-sm">
                       <span className="font-bold">Date:</span> {day.day} -{' '}
                       {day.month} - {day.year}
                     </p>
-                    <p className="text-sm text-gray-100">
+                    <p className="text-sm">
                       <span className="font-bold">Time:</span> {day.from} -{' '}
                       {day.to}
                     </p>
-                    <p className="text-sm text-gray-100">
+                    <p className="text-sm">
                       <span className="font-bold">Hourly Rate:</span>{' '}
                       {day.hourlyRate}
                     </p>
-                    <p className="text-sm text-gray-100">
+                    <p className="text-sm">
                       <span className="font-bold">Holyday:</span>{' '}
                       {day.isHoliday ? 'Yes' : 'No'}
                     </p>
